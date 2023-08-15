@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF53E6102A8655D200844BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E60F2A8655D200844BDB /* AppDelegate.swift */; };
+		EF53E6122A8655D200844BDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6112A8655D200844BDB /* SceneDelegate.swift */; };
+		EF53E6142A8655D200844BDB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6132A8655D200844BDB /* RootViewController.swift */; };
+		EF53E6192A8655D300844BDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF53E6182A8655D300844BDB /* Assets.xcassets */; };
+		EF53E61C2A8655D300844BDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF53E61A2A8655D300844BDB /* LaunchScreen.storyboard */; };
+		EF53E62A2A865D0900844BDB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6292A865D0900844BDB /* HomeTableViewController.swift */; };
+		EF53E62C2A865D3A00844BDB /* ResearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E62B2A865D3A00844BDB /* ResearchCollectionViewController.swift */; };
+		EF53E62E2A865D5900844BDB /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E62D2A865D5900844BDB /* BasketViewController.swift */; };
+		EF53E6302A865D6E00844BDB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E62F2A865D6E00844BDB /* AccountViewController.swift */; };
+		EF53E6372A86659A00844BDB /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6362A86659A00844BDB /* MainTableViewCell.swift */; };
+		EF53E63C2A868BC500844BDB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E63B2A868BC500844BDB /* Food.swift */; };
+		EF53E63E2A868C5200844BDB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E63D2A868C5200844BDB /* NetworkManager.swift */; };
+		EF53E6402A86950C00844BDB /* Classification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E63F2A86950C00844BDB /* Classification.swift */; };
+		EF53E6452A86AFC300844BDB /* DishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6442A86AFC300844BDB /* DishCollectionViewCell.swift */; };
+		EF53E6472A86E27400844BDB /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6462A86E27400844BDB /* DishViewController.swift */; };
+		EF53E64C2A87B93200844BDB /* LeftNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E64B2A87B93200844BDB /* LeftNavBarView.swift */; };
+		EF53E64E2A87BF5E00844BDB /* ext + UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E64D2A87BF5E00844BDB /* ext + UILabel.swift */; };
+		EF53E6502A87C1E200844BDB /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF53E64F2A87C1E200844BDB /* SF-Pro-Display-Medium.otf */; };
+		EF53E6522A87C20500844BDB /* Headlinetext.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF53E6512A87C20500844BDB /* Headlinetext.ttf */; };
+		EF53E6542A8804A400844BDB /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6532A8804A400844BDB /* GroupCollectionViewCell.swift */; };
+		EF53E6562A880CEA00844BDB /* GroupCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6552A880CEA00844BDB /* GroupCollectionView.swift */; };
+		EF53E6582A8811F000844BDB /* DishCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6572A8811F000844BDB /* DishCollectionView.swift */; };
+		EF6926DF2A88E60B001AFCF4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926DE2A88E60B001AFCF4 /* AlertView.swift */; };
+		EF6926E12A88E6F6001AFCF4 /* ext + UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E02A88E6F6001AFCF4 /* ext + UIButton.swift */; };
+		EF6926E62A8916D0001AFCF4 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E52A8916D0001AFCF4 /* CustomAlert.swift */; };
+		EF6926E92A892F2A001AFCF4 /* BasketViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E82A892F2A001AFCF4 /* BasketViewCell.swift */; };
+		EF6926EB2A8A9878001AFCF4 /* PlusAndMinusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926EA2A8A9878001AFCF4 /* PlusAndMinusView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EF53E60C2A8655D200844BDB /* PizzaYahoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaYahoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF53E60F2A8655D200844BDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF53E6112A8655D200844BDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EF53E6132A8655D200844BDB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		EF53E6182A8655D300844BDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF53E61B2A8655D300844BDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF53E61D2A8655D300844BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF53E6292A865D0900844BDB /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		EF53E62B2A865D3A00844BDB /* ResearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchCollectionViewController.swift; sourceTree = "<group>"; };
+		EF53E62D2A865D5900844BDB /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		EF53E62F2A865D6E00844BDB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		EF53E6362A86659A00844BDB /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		EF53E63B2A868BC500844BDB /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		EF53E63D2A868C5200844BDB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EF53E63F2A86950C00844BDB /* Classification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classification.swift; sourceTree = "<group>"; };
+		EF53E6442A86AFC300844BDB /* DishCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF53E6462A86E27400844BDB /* DishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewController.swift; sourceTree = "<group>"; };
+		EF53E64B2A87B93200844BDB /* LeftNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftNavBarView.swift; sourceTree = "<group>"; };
+		EF53E64D2A87BF5E00844BDB /* ext + UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ext + UILabel.swift"; sourceTree = "<group>"; };
+		EF53E64F2A87C1E200844BDB /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		EF53E6512A87C20500844BDB /* Headlinetext.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Headlinetext.ttf; sourceTree = "<group>"; };
+		EF53E6532A8804A400844BDB /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF53E6552A880CEA00844BDB /* GroupCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionView.swift; sourceTree = "<group>"; };
+		EF53E6572A8811F000844BDB /* DishCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCollectionView.swift; sourceTree = "<group>"; };
+		EF6926DE2A88E60B001AFCF4 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		EF6926E02A88E6F6001AFCF4 /* ext + UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ext + UIButton.swift"; sourceTree = "<group>"; };
+		EF6926E52A8916D0001AFCF4 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		EF6926E82A892F2A001AFCF4 /* BasketViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewCell.swift; sourceTree = "<group>"; };
+		EF6926EA2A8A9878001AFCF4 /* PlusAndMinusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusAndMinusView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF53E6092A8655D200844BDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF53E6032A8655D200844BDB = {
+			isa = PBXGroup;
+			children = (
+				EF53E60E2A8655D200844BDB /* PizzaYahoo */,
+				EF53E60D2A8655D200844BDB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF53E60D2A8655D200844BDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E60C2A8655D200844BDB /* PizzaYahoo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF53E60E2A8655D200844BDB /* PizzaYahoo */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6232A8656B600844BDB /* App */,
+				EF53E6392A868A9200844BDB /* Model */,
+				EF53E63A2A868AB100844BDB /* NetworkManager */,
+				EF53E6312A86641200844BDB /* ViewControllers */,
+				EF53E6492A87B8C100844BDB /* Views */,
+				EF53E6332A86646900844BDB /* Extension */,
+				EF53E6322A86645700844BDB /* Helpers */,
+				EF53E6182A8655D300844BDB /* Assets.xcassets */,
+				EF53E61A2A8655D300844BDB /* LaunchScreen.storyboard */,
+				EF53E61D2A8655D300844BDB /* Info.plist */,
+			);
+			path = PizzaYahoo;
+			sourceTree = "<group>";
+		};
+		EF53E6232A8656B600844BDB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E60F2A8655D200844BDB /* AppDelegate.swift */,
+				EF53E6112A8655D200844BDB /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EF53E6252A86572400844BDB /* HomeTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6292A865D0900844BDB /* HomeTableViewController.swift */,
+			);
+			path = HomeTableViewController;
+			sourceTree = "<group>";
+		};
+		EF53E6262A86575600844BDB /* ResearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E62B2A865D3A00844BDB /* ResearchCollectionViewController.swift */,
+			);
+			path = ResearchViewController;
+			sourceTree = "<group>";
+		};
+		EF53E6272A86579200844BDB /* BasketViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E62D2A865D5900844BDB /* BasketViewController.swift */,
+			);
+			path = BasketViewController;
+			sourceTree = "<group>";
+		};
+		EF53E6282A8657B500844BDB /* AccountViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E62F2A865D6E00844BDB /* AccountViewController.swift */,
+			);
+			path = AccountViewController;
+			sourceTree = "<group>";
+		};
+		EF53E6312A86641200844BDB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6132A8655D200844BDB /* RootViewController.swift */,
+				EF53E6252A86572400844BDB /* HomeTableViewController */,
+				EF53E6482A87B69C00844BDB /* DishCollectionViewController */,
+				EF53E6262A86575600844BDB /* ResearchViewController */,
+				EF53E6272A86579200844BDB /* BasketViewController */,
+				EF53E6282A8657B500844BDB /* AccountViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EF53E6322A86645700844BDB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6382A868A7000844BDB /* Fonts */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EF53E6332A86646900844BDB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF6926E42A8916BF001AFCF4 /* Unique */,
+				EF53E64D2A87BF5E00844BDB /* ext + UILabel.swift */,
+				EF6926E02A88E6F6001AFCF4 /* ext + UIButton.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EF53E6342A8664A100844BDB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6352A8664EF00844BDB /* MainTableViewCell */,
+				EF53E6412A86AB6800844BDB /* DishCollectionViewCell */,
+				EF6926E72A892F16001AFCF4 /* BasketViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EF53E6352A8664EF00844BDB /* MainTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6362A86659A00844BDB /* MainTableViewCell.swift */,
+			);
+			path = MainTableViewCell;
+			sourceTree = "<group>";
+		};
+		EF53E6382A868A7000844BDB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E64F2A87C1E200844BDB /* SF-Pro-Display-Medium.otf */,
+				EF53E6512A87C20500844BDB /* Headlinetext.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EF53E6392A868A9200844BDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E63F2A86950C00844BDB /* Classification.swift */,
+				EF53E63B2A868BC500844BDB /* Food.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF53E63A2A868AB100844BDB /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E63D2A868C5200844BDB /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		EF53E6412A86AB6800844BDB /* DishCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6532A8804A400844BDB /* GroupCollectionViewCell.swift */,
+				EF53E6442A86AFC300844BDB /* DishCollectionViewCell.swift */,
+			);
+			path = DishCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		EF53E6482A87B69C00844BDB /* DishCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6462A86E27400844BDB /* DishViewController.swift */,
+			);
+			path = DishCollectionViewController;
+			sourceTree = "<group>";
+		};
+		EF53E6492A87B8C100844BDB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E64A2A87B8CC00844BDB /* Subviews */,
+				EF53E64B2A87B93200844BDB /* LeftNavBarView.swift */,
+				EF53E6552A880CEA00844BDB /* GroupCollectionView.swift */,
+				EF53E6572A8811F000844BDB /* DishCollectionView.swift */,
+				EF6926DE2A88E60B001AFCF4 /* AlertView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF53E64A2A87B8CC00844BDB /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				EF53E6342A8664A100844BDB /* Cells */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		EF6926E42A8916BF001AFCF4 /* Unique */ = {
+			isa = PBXGroup;
+			children = (
+				EF6926E52A8916D0001AFCF4 /* CustomAlert.swift */,
+			);
+			path = Unique;
+			sourceTree = "<group>";
+		};
+		EF6926E72A892F16001AFCF4 /* BasketViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF6926E82A892F2A001AFCF4 /* BasketViewCell.swift */,
+				EF6926EA2A8A9878001AFCF4 /* PlusAndMinusView.swift */,
+			);
+			path = BasketViewCell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF53E60B2A8655D200844BDB /* PizzaYahoo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF53E6202A8655D300844BDB /* Build configuration list for PBXNativeTarget "PizzaYahoo" */;
+			buildPhases = (
+				EF53E6082A8655D200844BDB /* Sources */,
+				EF53E6092A8655D200844BDB /* Frameworks */,
+				EF53E60A2A8655D200844BDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PizzaYahoo;
+			productName = PizzaYahoo;
+			productReference = EF53E60C2A8655D200844BDB /* PizzaYahoo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF53E6042A8655D200844BDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					EF53E60B2A8655D200844BDB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = EF53E6072A8655D200844BDB /* Build configuration list for PBXProject "PizzaYahoo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF53E6032A8655D200844BDB;
+			productRefGroup = EF53E60D2A8655D200844BDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF53E60B2A8655D200844BDB /* PizzaYahoo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF53E60A2A8655D200844BDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF53E6502A87C1E200844BDB /* SF-Pro-Display-Medium.otf in Resources */,
+				EF53E61C2A8655D300844BDB /* LaunchScreen.storyboard in Resources */,
+				EF53E6192A8655D300844BDB /* Assets.xcassets in Resources */,
+				EF53E6522A87C20500844BDB /* Headlinetext.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF53E6082A8655D200844BDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF53E62E2A865D5900844BDB /* BasketViewController.swift in Sources */,
+				EF6926DF2A88E60B001AFCF4 /* AlertView.swift in Sources */,
+				EF6926EB2A8A9878001AFCF4 /* PlusAndMinusView.swift in Sources */,
+				EF6926E92A892F2A001AFCF4 /* BasketViewCell.swift in Sources */,
+				EF53E6142A8655D200844BDB /* RootViewController.swift in Sources */,
+				EF53E63E2A868C5200844BDB /* NetworkManager.swift in Sources */,
+				EF53E6372A86659A00844BDB /* MainTableViewCell.swift in Sources */,
+				EF6926E12A88E6F6001AFCF4 /* ext + UIButton.swift in Sources */,
+				EF53E6402A86950C00844BDB /* Classification.swift in Sources */,
+				EF53E6302A865D6E00844BDB /* AccountViewController.swift in Sources */,
+				EF53E6472A86E27400844BDB /* DishViewController.swift in Sources */,
+				EF53E6102A8655D200844BDB /* AppDelegate.swift in Sources */,
+				EF6926E62A8916D0001AFCF4 /* CustomAlert.swift in Sources */,
+				EF53E64E2A87BF5E00844BDB /* ext + UILabel.swift in Sources */,
+				EF53E63C2A868BC500844BDB /* Food.swift in Sources */,
+				EF53E64C2A87B93200844BDB /* LeftNavBarView.swift in Sources */,
+				EF53E6542A8804A400844BDB /* GroupCollectionViewCell.swift in Sources */,
+				EF53E6452A86AFC300844BDB /* DishCollectionViewCell.swift in Sources */,
+				EF53E6582A8811F000844BDB /* DishCollectionView.swift in Sources */,
+				EF53E6122A8655D200844BDB /* SceneDelegate.swift in Sources */,
+				EF53E62A2A865D0900844BDB /* HomeTableViewController.swift in Sources */,
+				EF53E6562A880CEA00844BDB /* GroupCollectionView.swift in Sources */,
+				EF53E62C2A865D3A00844BDB /* ResearchCollectionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EF53E61A2A8655D300844BDB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF53E61B2A8655D300844BDB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF53E61E2A8655D300844BDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF53E61F2A8655D300844BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF53E6212A8655D300844BDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5AXXJ74V2C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PizzaYahoo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = OA.PizzaYahoo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EF53E6222A8655D300844BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5AXXJ74V2C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PizzaYahoo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = OA.PizzaYahoo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF53E6072A8655D200844BDB /* Build configuration list for PBXProject "PizzaYahoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF53E61E2A8655D300844BDB /* Debug */,
+				EF53E61F2A8655D300844BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF53E6202A8655D300844BDB /* Build configuration list for PBXNativeTarget "PizzaYahoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF53E6212A8655D300844BDB /* Debug */,
+				EF53E6222A8655D300844BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF53E6042A8655D200844BDB /* Project object */;
+}
