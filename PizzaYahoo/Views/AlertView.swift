@@ -65,9 +65,7 @@ class AlertView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        //translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 15
-        //cancelButton.setTitleColor(.brown, for: .highlighted)
         setupViews()
         setupLayout()
         

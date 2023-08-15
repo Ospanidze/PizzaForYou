@@ -66,9 +66,9 @@ final class RootViewController: UITabBarController {
         )
         
         viewControllers = [
-            basketNavigationVC,
-            researchNavigationVC,
             mainNavigationVC,
+            researchNavigationVC,
+            basketNavigationVC,
             accountNavigationVC
         ]
     }

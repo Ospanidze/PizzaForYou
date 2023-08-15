@@ -19,14 +19,7 @@ import UIKit
 //    }
 //}
 
-protocol CustomAlertDelegate: AnyObject {
-    func addDish(_ dish: Dish)
-}
-
 final class CustomAlert {
-    
-//    var dishSelectedHandler: ((Dish) -> Void)?
-    weak var customAlertDelegate: CustomAlertDelegate?
     
     private let backgroundView: UIView = {
         let view = UIView()
@@ -106,9 +99,7 @@ extension CustomAlert: AlertViewDelegate {
         guard let chosenDish = dish else { return }
         let userInfo: [String: Dish] = ["selectedDish": chosenDish]
         NotificationCenter.default.post(name: NSNotification.Name("SelectedDishNotification"), object: nil, userInfo: userInfo)
-        
-//        dishSelectedHandler?(chosenDish)
-//        customAlertDelegate?.addDish(chosenDish)
+
         closeButtonTapped()
     }
 }

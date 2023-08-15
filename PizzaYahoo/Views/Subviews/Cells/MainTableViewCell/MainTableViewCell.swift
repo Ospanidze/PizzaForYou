@@ -12,22 +12,35 @@ final class MainTableViewCell: UITableViewCell {
 //    var category: Сategory?
     private let networkManager = NetworkManager.shared
     
+    private var image: UIImage? {
+        didSet {
+            bgImageView.image = image
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+        }
+    }
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.color = .black
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.startAnimating()
+        return activityIndicator
+    }()
+    
     private let backdropView: UIView = {
         let view = UIView()
         //view.backgroundColor = .yellow
         view.layer.cornerRadius = 15
         view.translatesAutoresizingMaskIntoConstraints = false
         view.largeContentImage = UIImage(systemName: "person")
-        //view.largeContentImage = UIImage(systemName: "person")
         return view
     }()
     
     private let bgImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(
-            systemName: "house"
-        )?.withRenderingMode(.alwaysTemplate)
-        //imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage().withRenderingMode(.alwaysTemplate)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -60,7 +73,7 @@ final class MainTableViewCell: UITableViewCell {
         networkManager.fetchImage(from: category.imageURL) { [weak self] result in
             switch result {
             case .success(let imageData):
-                self?.bgImageView.image = UIImage(data: imageData)
+                self?.image = UIImage(data: imageData)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -71,6 +84,7 @@ final class MainTableViewCell: UITableViewCell {
         addSubview(backdropView)
         backdropView.addSubview(bgImageView)
         backdropView.addSubview(titleLabel)
+        bgImageView.addSubview(activityIndicator)
     }
 }
 
@@ -97,6 +111,11 @@ extension MainTableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: backdropView.leadingAnchor, constant: 8),
             titleLabel.heightAnchor.constraint(equalToConstant: 60),
             titleLabel.widthAnchor.constraint(equalTo: backdropView.widthAnchor, multiplier: 0.6)
+        ])
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: backdropView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: backdropView.centerYAnchor)
         ])
     }
 }

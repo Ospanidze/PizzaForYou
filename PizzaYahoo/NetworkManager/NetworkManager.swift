@@ -35,9 +35,18 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
+    private let cacheModel = NSCache<NSString, AnyObject>()
+    private let cacheImage = NSCache<NSString, CachedImage>()
+    
     private init() {}
     
     func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping(Result<T, NetworkError>) -> Void) {
+        
+        if let cachedData = cacheModel.object(forKey: url.absoluteString as NSString) as? T {
+            completion(.success(cachedData))
+            return
+            
+        }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
@@ -50,6 +59,9 @@ class NetworkManager {
             
             do {
                 let dataModel = try decoder.decode(T.self, from: data)
+                self.cacheModel.setObject(
+                    dataModel as AnyObject, forKey: url.absoluteString as NSString
+                )
                 completion(.success(dataModel))
             } catch {
                 completion(.failure(.decodingError))
@@ -59,20 +71,39 @@ class NetworkManager {
     
     func fetchImage(from urlString: String, completion: @escaping(Result<Data,NetworkError>) -> Void) {
         
+        if let cachedImage = cacheImage.object(forKey: urlString as NSString) {
+            completion(.success(cachedImage.data))
+            return
+        }
+        
         guard let url = URL(string: urlString) else {
             completion(.failure(.decodingError))
             return
         }
+
+        let requestURL = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 5)
+        
+        guard let urlFromRequest = requestURL.url else { return }
         
         DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
+            guard let imageData = try? Data(contentsOf: urlFromRequest) else {
                 completion(.failure(.noData))
                 return
             }
             
+            let cachedImageData = CachedImage(data: imageData)
+            self.cacheImage.setObject(cachedImageData, forKey: urlString as NSString)
             DispatchQueue.main.async {
                 completion(.success(imageData))
             }
         }
+    }
+}
+
+class CachedImage {
+    let data: Data
+
+    init(data: Data) {
+        self.data = data
     }
 }

@@ -25,13 +25,18 @@ final class DishViewController: UIViewController {
         
         title = dishTitle
         view.backgroundColor = .white
-        groupCollectionView.groupDelegate = self
-        dishCollectionView.dishDelegate = self
-        //customAlert.customAlertDelegate = self
+        
+        setupDelegates()
         setupViews()
         setupLayout()
         fecthFood()
         
+    }
+    
+    //MARK: Private Methods
+    private func setupDelegates() {
+        groupCollectionView.groupDelegate = self
+        dishCollectionView.dishDelegate = self
     }
     
     private func setupViews() {
@@ -71,15 +76,7 @@ final class DishViewController: UIViewController {
     
 }
 
-//extension DishViewController: CustomAlertDelegate {
-//    func addDish(_ dish: Dish) {
-//        print(dish)
-//    }
-//
-//}
-
 //MARK: GroupCollectionViewDelegate
-
 extension DishViewController: GroupCollectionViewDelegate {
     func didSelectGroup(at group: Teg) {
         dishCollectionView.updateDishesForGroup(at: group)
@@ -88,19 +85,11 @@ extension DishViewController: GroupCollectionViewDelegate {
 
 extension DishViewController: DishCollectionViewDelegate {
     func didSelectDish(at dish: Dish) {
-        //customAlert.delegate = self
         customAlert.presentCustomAlert(viewController: self, dish: dish)
     }
-    
-    
 }
 
-
-
-//MARK:
-
 //MARK: FetchFood
-
 extension DishViewController {
     private func fecthFood() {
         networkManager.fetch(Food.self, from: Link.food.url) {[weak self] result in

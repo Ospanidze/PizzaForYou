@@ -13,6 +13,7 @@ struct CartItem {
 }
 
 final class BasketViewController: UIViewController {
+    
     private let customAlert = CustomAlert()
     
     private let networkManager = NetworkManager.shared
@@ -24,7 +25,6 @@ final class BasketViewController: UIViewController {
     private var cartItems: [CartItem] = []
     
     private let leftView = LeftNavBarView()
-    //private let customAlert = CustomAlert()
     
     private let basketTableView: UITableView = {
         let tableView = UITableView()
@@ -53,22 +53,17 @@ final class BasketViewController: UIViewController {
         setupLayout()
         setupNavigationBar(leftView)
         setupDelegates()
+        setupRefreshControl()
         
         basketTableView.register(
             BasketViewCell.self,
             forCellReuseIdentifier: idBasketCell
         )
-        //fetchDishes()
-        
+    
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSelectedDish(_:)), name: NSNotification.Name("SelectedDishNotification"), object: nil)
-
     }
     
-//    func addSelectedDishToBasket(_ dish: Dish) {
-//        dishes.append(dish)
-//        basketTableView.reloadData()
-//    }
-    
+    //MARK: Private Methods
     private func setupViews() {
         view.addSubview(basketTableView)
         view.addSubview(payButton)
@@ -76,26 +71,27 @@ final class BasketViewController: UIViewController {
     
     private func setupDelegates() {
         basketTableView.dataSource = self
-        customAlert.customAlertDelegate = self
     }
     
-    @objc func didReceiveSelectedDish(_ notification: Notification) {
+    private func updateTotalSum() {
+        let totalSum = cartItems.reduce(0) { $0 + ($1.dish.price * $1.quantity) }
+        payButton.setTitle("Оплатить \(totalSum)tg", for: .normal)
+    }
+    
+    @objc private func didReceiveSelectedDish(_ notification: Notification) {
         if let selectedDish = notification.userInfo?["selectedDish"] as? Dish {
     
-            dishes.append(selectedDish)
-            //sortedDishes = dishes.filter { $0.id }
-            
-            print(sortedDishes)
-            cartItems = dishes.map { CartItem(dish: $0, quantity: 1) }
-            updateTotalSum()
-            basketTableView.reloadData()
+            if !dishes.contains(where: { $0.id == selectedDish.id }) {
+                dishes.append(selectedDish)
+                cartItems = dishes.map { CartItem(dish: $0, quantity: 1) }
+                updateTotalSum()
+                basketTableView.reloadData()
+            }
         }
     }
-    
-
 }
 
-
+//MARK: TableViewDataSource
 extension BasketViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dishes.count
@@ -113,47 +109,30 @@ extension BasketViewController: UITableViewDataSource {
         cell.setupCell(dish: dish)
         return cell
     }
+}
+
+//MARK: SetupRefreshControl
+private extension BasketViewController {
+    func setupRefreshControl() {
+        basketTableView.refreshControl = UIRefreshControl()
+        basketTableView.refreshControl?.attributedTitle = NSAttributedString(
+            string: "Pull to refresh"
+        )
+        let refreshAction = UIAction { [unowned self] _ in
+            reloadBasketTableView()
+        }
+        basketTableView.refreshControl?.addAction(refreshAction, for: .valueChanged)
+    }
     
-    private func updateTotalSum() {
-        let totalSum = cartItems.reduce(0) { $0 + ($1.dish.price * $1.quantity) }
-        payButton.setTitle("Оплатить \(totalSum)tg", for: .normal)
+    func reloadBasketTableView() {
+        basketTableView.reloadData()
+        if basketTableView.refreshControl != nil {
+            basketTableView.refreshControl?.endRefreshing()
+        }
     }
 }
 
-extension BasketViewController: CustomAlertDelegate {
-    func addDish(_ dish: Dish) {
-        print(dish)
-    }
-}
-
-//extension BasketViewController {
-//    func fetchDishes() {
-//        networkManager.fetch(Food.self, from: Link.food.url) { [unowned self] result in
-//            switch result {
-//            case .success(let food):
-//                dishes = Array(food.dishes[0...2])
-//                cartItems = dishes.map { CartItem(dish: $0, quantity: 1) }
-//                DispatchQueue.main.async { [weak self] in
-//                    self?.updateTotalSum()
-//                    self?.basketTableView.reloadData()
-//                }
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
-//}
-
-//extension BasketViewController: DishViewControllerDelegate {
-//    func transfer(_ dish: Dish) {
-//        print(dish)
-//        dishes.append(dish)
-//        DispatchQueue.main.async { [weak self] in
-//            self?.basketTableView.reloadData()
-//        }
-//    }
-//}
-
+//MARK: SetupLayout
 extension BasketViewController {
     private func setupLayout() {
         NSLayoutConstraint.activate([
