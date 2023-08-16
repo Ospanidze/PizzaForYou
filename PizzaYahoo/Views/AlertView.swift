@@ -41,15 +41,27 @@ class AlertView: UIView {
     private lazy var heartButton = UIButton(imageString: "heart")
     private lazy var cancelButton = UIButton(imageString: "x.circle")
     
-    private let nameLabel = UILabel(text: "C рисосм", font: UIFont.systemFont(ofSize: 18, weight: .bold))
-    private let costLabel = UILabel(text: "213tg", font: UIFont.systemFont(ofSize: 14, weight: .heavy))
-    private let massLabel = UILabel(text: "314g",
-                                    font: UIFont.systemFont(ofSize: 14, weight: .heavy),
-                            textAlignment: .right,
-                            foregroundColor: .systemGray3)
-    private let discriptionLabel = UILabel(text: "sdaаафафаофоылаодлафыаыфд", font: UIFont.systemFont(ofSize: 14, weight: .medium))
-                                
+    private let nameLabel = UILabel(
+        text: "C рисосм",
+        font: UIFont.systemFont(ofSize: 18, weight: .heavy)
+    )
+    private let costLabel = UILabel(
+        text: "213tg",
+        font: UIFont.sfProDisplay(size: 14)
+    )
     
+    private let massLabel = UILabel(
+        text: "314g",
+        font: UIFont.sfProDisplay(size: 14),
+        textAlignment: .right,
+        foregroundColor: .systemGray3
+    )
+    
+    private let discriptionLabel = UILabel(
+        text: "sdaаафафаофоылаодлафыаыфд",
+        font: UIFont.headlineText(size: 16)
+    )
+                                
     private lazy var basketButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 10
@@ -162,7 +174,7 @@ extension AlertView {
         ])
         
         NSLayoutConstraint.activate([
-            discriptionLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor),
+            discriptionLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 2),
             discriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             discriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             discriptionLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25)

@@ -38,7 +38,7 @@ final class DishCollectionViewCell: UICollectionViewCell {
         label.text = "Pizza"
         label.numberOfLines = 2
         label.minimumScaleFactor = 10
-        label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        label.font = UIFont.sfProDisplay(size: 14)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

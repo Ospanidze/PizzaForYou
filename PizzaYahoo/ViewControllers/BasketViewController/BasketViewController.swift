@@ -14,8 +14,6 @@ struct CartItem {
 
 final class BasketViewController: UIViewController {
     
-    private let customAlert = CustomAlert()
-    
     private let networkManager = NetworkManager.shared
     
     private let idBasketCell = "idBasketCell"
@@ -39,7 +37,7 @@ final class BasketViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.setTitle("Оплатить 0tg", for: .normal)
         button.setTitleColor(.brown, for: .highlighted)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.titleLabel?.font = UIFont.sfProDisplay(size: 18)
         button.backgroundColor = .blue
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +69,7 @@ final class BasketViewController: UIViewController {
     
     private func setupDelegates() {
         basketTableView.dataSource = self
+        basketTableView.delegate = self
     }
     
     private func updateTotalSum() {
@@ -108,6 +107,18 @@ extension BasketViewController: UITableViewDataSource {
         }
         cell.setupCell(dish: dish)
         return cell
+    }
+}
+
+//MARK: TableViewDelegate
+extension BasketViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dishes.remove(at: indexPath.row)
+            cartItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            updateTotalSum()
+        }
     }
 }
 

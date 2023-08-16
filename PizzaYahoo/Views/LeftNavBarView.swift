@@ -21,12 +21,13 @@ final class LeftNavBarView: UIView {
     
     private let cityNameLabel = UILabel(
         text: "Astana",
-        font: .systemFont(ofSize: 17)
+        //font: .systemFont(ofSize: 17, weight: .bold)
+        font: UIFont(name: "SFProDisplay-Medium", size: 17)
     )
     
     private let dateLabel = UILabel(
         text: "12 Август, 2023",
-        font: .systemFont(ofSize: 14),
+        font: .systemFont(ofSize: 14, weight: .heavy),
         foregroundColor: .systemGray3
     )
     
@@ -36,6 +37,7 @@ final class LeftNavBarView: UIView {
         //backgroundColor = .white
         setupViews()
         setupLayout()
+        updateDateLabel()
     }
     
     @available(*, unavailable)
@@ -47,6 +49,14 @@ final class LeftNavBarView: UIView {
         addSubview(iconImageView)
         addSubview(cityNameLabel)
         addSubview(dateLabel)
+    }
+    
+    private func updateDateLabel() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM, yyyy"
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+        dateLabel.text = formattedDate
     }
 }
 

@@ -47,7 +47,7 @@ final class MainTableViewCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont.sfProDisplay(size: 20)
         label.text = "Pizza"
         label.textAlignment = .left
         label.numberOfLines = 2

@@ -13,7 +13,7 @@ final class GroupCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.font = UIFont.sfProDisplay(size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

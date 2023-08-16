@@ -35,12 +35,11 @@ final class BasketViewCell: UITableViewCell {
     private let nameLabel = UILabel(text: "C рисосм",
                                     font: UIFont.systemFont(ofSize: 16, weight: .bold))
     private let costLabel = UILabel(text: "213tg",
-                                    font: UIFont.systemFont(ofSize: 14, weight: .heavy))
+                                    font: UIFont.sfProDisplay(size: 14))
     private let massLabel = UILabel(text: "314g",
-                                    font: UIFont.systemFont(ofSize: 14, weight: .heavy),
-                            textAlignment: .right,
-                            foregroundColor: .systemGray3)
-    
+                                    font: UIFont.sfProDisplay(size: 14),
+                                    textAlignment: .right,
+                                    foregroundColor: .systemGray3)
     
     private let plusAndMinusView = PlusAndMinusView()
     
