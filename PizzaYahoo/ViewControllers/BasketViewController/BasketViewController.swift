@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol BasketViewControllerDelegate: AnyObject {
+    func transmit(_ message: String)
+}
+
 struct CartItem {
     let dish: Dish
     var quantity: Int
 }
 
 final class BasketViewController: UIViewController {
+    
+    weak var delegateBVC: BasketViewControllerDelegate?
     
     private let networkManager = NetworkManager.shared
     
@@ -85,6 +91,9 @@ final class BasketViewController: UIViewController {
                 cartItems = dishes.map { CartItem(dish: $0, quantity: 1) }
                 updateTotalSum()
                 basketTableView.reloadData()
+            } else {
+                let message = "уже есть в корзине"
+                delegateBVC?.transmit(message)
             }
         }
     }

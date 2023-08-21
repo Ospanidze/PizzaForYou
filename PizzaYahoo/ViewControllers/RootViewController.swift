@@ -22,7 +22,7 @@ enum Tab: String {
         case .basket:
             return "cart"
         case .account:
-            return "person"
+            return "person.circle"
         }
     }
 }

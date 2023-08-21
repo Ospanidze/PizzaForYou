@@ -21,6 +21,8 @@ import UIKit
 
 final class CustomAlert {
     
+    private var dish: Dish?
+    
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
@@ -33,9 +35,6 @@ final class CustomAlert {
     private let scrollView = UIScrollView()
     
     private var mainView: UIView?
-    
-    private var dish: Dish?
-    
     
     func presentCustomAlert(viewController: UIViewController,
                             dish: Dish?) {
