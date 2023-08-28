@@ -23,7 +23,7 @@ final class DishViewController: UIViewController {
         super.viewDidLoad()
         
         title = dishTitle
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         setupDelegates()
         setupViews()

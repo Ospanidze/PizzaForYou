@@ -13,7 +13,7 @@ protocol AlertViewDelegate: AnyObject {
     func basketAction()
 }
 
-class AlertView: UIView {
+final class AlertView: UIView {
     
     weak var alertViewDelegate: AlertViewDelegate?
     
