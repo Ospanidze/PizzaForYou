@@ -36,6 +36,7 @@ final class GroupCollectionView: UICollectionView {
     
     func setupGroupCollectionView(groupNames: [Teg]) {
         self.groupNames = groupNames
+        reloadData()
     }
     
     private func setupConfigure() {

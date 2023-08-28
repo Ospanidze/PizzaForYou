@@ -58,15 +58,17 @@ final class BasketViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCell(dish: Dish) {
-        nameLabel.text = dish.name
-        costLabel.text = "\(dish.price)tg"
-        massLabel.text = "\(dish.weight)g"
+    func setupCell(cartItem: CartItem) {
+        nameLabel.text = cartItem.dish.name
+        costLabel.text = "\(cartItem.dish.price)tg"
+        massLabel.text = "\(cartItem.dish.weight)g"
         
         plusAndMinusView.valueChanged = { [weak self] newQuantity in
             self?.quantityChanged?(newQuantity)
         }
-        networkManager.fetchImage(from: dish.imageURL) { [weak self] result in
+        plusAndMinusView.configure(beginningCount: cartItem.quantity)
+        
+        networkManager.fetchImage(from: cartItem.dish.imageURL) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.basketImageView.image = UIImage(data: imageData)

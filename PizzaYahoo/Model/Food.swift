@@ -13,7 +13,7 @@ struct Food: Decodable {
 }
 
 // MARK: - Dish
-struct Dish: Decodable {
+struct Dish: Decodable, Equatable {
     let id: Int
     let name: String
     let price, weight: Int

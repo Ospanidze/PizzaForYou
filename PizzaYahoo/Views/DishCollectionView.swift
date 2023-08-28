@@ -38,8 +38,7 @@ final class DishCollectionView: UICollectionView {
     func setupCollectionView(dishes: [Dish]) {
         allDishes = dishes
         displayedDishes = allDishes
-//        let check = dishes.filter { $0.tegs.contains(.сРисом) }.count
-//        print(check)
+        reloadData()
     }
     
     func updateDishesForGroup(at group: Teg) {

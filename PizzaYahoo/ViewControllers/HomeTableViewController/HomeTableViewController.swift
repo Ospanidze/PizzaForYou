@@ -19,7 +19,9 @@ final class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
+        tableView.backgroundView?.backgroundColor = .systemBackground
         tableView.rowHeight = 140
         tableView.register(
             MainTableViewCell.self,

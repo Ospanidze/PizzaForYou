@@ -12,7 +12,6 @@ final class DishViewController: UIViewController {
     var dishTitle: String?
 
     private let networkManager = NetworkManager.shared
-    private var dishes: [Dish] = []
     private var groupNames = Teg.allCases
     
     private let groupCollectionView = GroupCollectionView()
@@ -50,10 +49,12 @@ final class DishViewController: UIViewController {
                 equalTo: view.safeAreaLayoutGuide.topAnchor
             ),
             groupCollectionView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor
+                equalTo: view.leadingAnchor,
+                constant: 8
             ),
             groupCollectionView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor
+                equalTo: view.trailingAnchor,
+                constant: -8
             ),
             groupCollectionView.heightAnchor.constraint(equalToConstant: 80),
         ])
@@ -95,12 +96,10 @@ extension DishViewController {
         networkManager.fetch(Food.self, from: Link.food.url) {[weak self] result in
             switch result {
             case .success(let food):
-                self?.dishes = food.dishes
+//                self?.dishes = food.dishes
                 DispatchQueue.main.async {
-                    self?.dishCollectionView.setupCollectionView(dishes: self?.dishes ?? [])
-                    self?.dishCollectionView.reloadData()
+                    self?.dishCollectionView.setupCollectionView(dishes: food.dishes)
                     self?.groupCollectionView.setupGroupCollectionView(groupNames: self?.groupNames ?? [])
-                    self?.groupCollectionView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)

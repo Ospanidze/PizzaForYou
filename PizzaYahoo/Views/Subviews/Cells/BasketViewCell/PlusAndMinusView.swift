@@ -51,15 +51,18 @@ final class PlusAndMinusView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(beginningCount: Int) {
+        count = beginningCount
+    }
+    
     @objc private func buttonTapped(sender: UIButton) {
         if sender.tag == 0 {
             guard count < 9 else { return }
             count += 1
         } else {
-            guard count > 1 else { return }
+            guard count > 0 else { return }
             count -= 1
         }
-        
     }
     
     private func setupViews() {
@@ -89,4 +92,3 @@ final class PlusAndMinusView: UIView {
     }
     
 }
-

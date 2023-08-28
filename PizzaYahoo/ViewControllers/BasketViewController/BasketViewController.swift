@@ -13,19 +13,13 @@ protocol BasketViewControllerDelegate: AnyObject {
 
 struct CartItem {
     let dish: Dish
-    var quantity: Int
+    var quantity = 1
 }
 
 final class BasketViewController: UIViewController {
     
-    weak var delegateBVC: BasketViewControllerDelegate?
-    
-    private let networkManager = NetworkManager.shared
-    
     private let idBasketCell = "idBasketCell"
     
-    private var dishes: [Dish] = []
-    private var sortedDishes: [Dish] = []
     private var cartItems: [CartItem] = []
     
     private let leftView = LeftNavBarView()
@@ -33,6 +27,7 @@ final class BasketViewController: UIViewController {
     private let basketTableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
+        tableView.backgroundView?.backgroundColor = .white
         tableView.rowHeight = 80
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -85,16 +80,15 @@ final class BasketViewController: UIViewController {
     
     @objc private func didReceiveSelectedDish(_ notification: Notification) {
         if let selectedDish = notification.userInfo?["selectedDish"] as? Dish {
-    
-            if !dishes.contains(where: { $0.id == selectedDish.id }) {
-                dishes.append(selectedDish)
-                cartItems = dishes.map { CartItem(dish: $0, quantity: 1) }
-                updateTotalSum()
-                basketTableView.reloadData()
-            } else {
-                let message = "уже есть в корзине"
-                delegateBVC?.transmit(message)
+
+            guard !cartItems.contains(where: { $0.dish.id == selectedDish.id }) else {
+                print("уже есть в корзине")
+                return
             }
+            let cartItem = CartItem(dish: selectedDish)
+            cartItems.append(cartItem)
+            updateTotalSum()
+            basketTableView.reloadData()
         }
     }
 }
@@ -102,19 +96,29 @@ final class BasketViewController: UIViewController {
 //MARK: TableViewDataSource
 extension BasketViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dishes.count
+        cartItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dish = dishes[indexPath.row]
+        let cartItem = cartItems[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: idBasketCell, for: indexPath)
         guard let cell = cell as? BasketViewCell else { return UITableViewCell() }
         
-        cell.quantityChanged = { [weak self, indexPath] newQuantity in
-            self?.cartItems[indexPath.row].quantity = newQuantity
-            self?.updateTotalSum()
+        cell.quantityChanged = { [unowned self, indexPath] newQuantity in
+            guard newQuantity != 0 else {
+                self.cartItems.remove(at: indexPath.row)
+                self.updateTotalSum()
+                tableView.reloadData()
+                return
+            }
+            
+            self.cartItems[indexPath.row].quantity = newQuantity
+            self.updateTotalSum()
+            
         }
-        cell.setupCell(dish: dish)
+        
+        cell.setupCell(cartItem: cartItem)
+        
         return cell
     }
 }
@@ -123,7 +127,6 @@ extension BasketViewController: UITableViewDataSource {
 extension BasketViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dishes.remove(at: indexPath.row)
             cartItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             updateTotalSum()
