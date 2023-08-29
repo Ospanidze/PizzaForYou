@@ -32,11 +32,21 @@
 		EF53E6562A880CEA00844BDB /* GroupCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6552A880CEA00844BDB /* GroupCollectionView.swift */; };
 		EF53E6582A8811F000844BDB /* DishCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E6572A8811F000844BDB /* DishCollectionView.swift */; };
 		EF63B71D2A9CD825004214C8 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF63B71C2A9CD825004214C8 /* PaymentViewController.swift */; };
+		EF63B7202A9D375C004214C8 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B71F2A9D375C004214C8 /* Stripe */; };
+		EF63B7222A9D375C004214C8 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B7212A9D375C004214C8 /* StripeApplePay */; };
+		EF63B7242A9D375C004214C8 /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B7232A9D375C004214C8 /* StripeCardScan */; };
+		EF63B7262A9D375C004214C8 /* StripeFinancialConnections in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B7252A9D375C004214C8 /* StripeFinancialConnections */; };
+		EF63B7282A9D375C004214C8 /* StripeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B7272A9D375C004214C8 /* StripeIdentity */; };
+		EF63B72A2A9D375C004214C8 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B7292A9D375C004214C8 /* StripePaymentSheet */; };
+		EF63B72C2A9D375C004214C8 /* StripePayments in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B72B2A9D375C004214C8 /* StripePayments */; };
+		EF63B72E2A9D375C004214C8 /* StripePaymentsUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF63B72D2A9D375C004214C8 /* StripePaymentsUI */; };
 		EF6926DF2A88E60B001AFCF4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926DE2A88E60B001AFCF4 /* AlertView.swift */; };
 		EF6926E12A88E6F6001AFCF4 /* ext + UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E02A88E6F6001AFCF4 /* ext + UIButton.swift */; };
 		EF6926E62A8916D0001AFCF4 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E52A8916D0001AFCF4 /* CustomAlert.swift */; };
 		EF6926E92A892F2A001AFCF4 /* BasketViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E82A892F2A001AFCF4 /* BasketViewCell.swift */; };
 		EF6926EB2A8A9878001AFCF4 /* PlusAndMinusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926EA2A8A9878001AFCF4 /* PlusAndMinusView.swift */; };
+		EFFE089E2A9E604A00DCCFAB /* DishModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFFE089C2A9E604A00DCCFAB /* DishModel.xcdatamodeld */; };
+		EFFE08A12A9E613100DCCFAB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE08A02A9E613100DCCFAB /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +82,8 @@
 		EF6926E52A8916D0001AFCF4 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		EF6926E82A892F2A001AFCF4 /* BasketViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewCell.swift; sourceTree = "<group>"; };
 		EF6926EA2A8A9878001AFCF4 /* PlusAndMinusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusAndMinusView.swift; sourceTree = "<group>"; };
+		EFFE089D2A9E604A00DCCFAB /* DishModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DishModel.xcdatamodel; sourceTree = "<group>"; };
+		EFFE08A02A9E613100DCCFAB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF63B7242A9D375C004214C8 /* StripeCardScan in Frameworks */,
+				EF63B7262A9D375C004214C8 /* StripeFinancialConnections in Frameworks */,
+				EF63B7282A9D375C004214C8 /* StripeIdentity in Frameworks */,
+				EF63B7202A9D375C004214C8 /* Stripe in Frameworks */,
+				EF63B72A2A9D375C004214C8 /* StripePaymentSheet in Frameworks */,
+				EF63B72C2A9D375C004214C8 /* StripePayments in Frameworks */,
+				EF63B72E2A9D375C004214C8 /* StripePaymentsUI in Frameworks */,
+				EF63B7222A9D375C004214C8 /* StripeApplePay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +137,7 @@
 			children = (
 				EF53E6232A8656B600844BDB /* App */,
 				EF53E6392A868A9200844BDB /* Model */,
+				EFFE089F2A9E611400DCCFAB /* StorageManager */,
 				EF53E63A2A868AB100844BDB /* NetworkManager */,
 				EF53E6312A86641200844BDB /* ViewControllers */,
 				EF53E6492A87B8C100844BDB /* Views */,
@@ -225,6 +246,7 @@
 			children = (
 				EF53E63F2A86950C00844BDB /* Classification.swift */,
 				EF53E63B2A868BC500844BDB /* Food.swift */,
+				EFFE089C2A9E604A00DCCFAB /* DishModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +313,14 @@
 			path = BasketViewCell;
 			sourceTree = "<group>";
 		};
+		EFFE089F2A9E611400DCCFAB /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE08A02A9E613100DCCFAB /* StorageManager.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,6 +337,16 @@
 			dependencies = (
 			);
 			name = PizzaYahoo;
+			packageProductDependencies = (
+				EF63B71F2A9D375C004214C8 /* Stripe */,
+				EF63B7212A9D375C004214C8 /* StripeApplePay */,
+				EF63B7232A9D375C004214C8 /* StripeCardScan */,
+				EF63B7252A9D375C004214C8 /* StripeFinancialConnections */,
+				EF63B7272A9D375C004214C8 /* StripeIdentity */,
+				EF63B7292A9D375C004214C8 /* StripePaymentSheet */,
+				EF63B72B2A9D375C004214C8 /* StripePayments */,
+				EF63B72D2A9D375C004214C8 /* StripePaymentsUI */,
+			);
 			productName = PizzaYahoo;
 			productReference = EF53E60C2A8655D200844BDB /* PizzaYahoo.app */;
 			productType = "com.apple.product-type.application";
@@ -335,6 +375,9 @@
 				Base,
 			);
 			mainGroup = EF53E6032A8655D200844BDB;
+			packageReferences = (
+				EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
+			);
 			productRefGroup = EF53E60D2A8655D200844BDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -366,6 +409,7 @@
 				EF53E62E2A865D5900844BDB /* BasketViewController.swift in Sources */,
 				EF6926DF2A88E60B001AFCF4 /* AlertView.swift in Sources */,
 				EF6926EB2A8A9878001AFCF4 /* PlusAndMinusView.swift in Sources */,
+				EFFE08A12A9E613100DCCFAB /* StorageManager.swift in Sources */,
 				EF6926E92A892F2A001AFCF4 /* BasketViewCell.swift in Sources */,
 				EF53E6142A8655D200844BDB /* RootViewController.swift in Sources */,
 				EF53E63E2A868C5200844BDB /* NetworkManager.swift in Sources */,
@@ -383,6 +427,7 @@
 				EF53E64C2A87B93200844BDB /* LeftNavBarView.swift in Sources */,
 				EF53E6542A8804A400844BDB /* GroupCollectionViewCell.swift in Sources */,
 				EF53E6452A86AFC300844BDB /* DishCollectionViewCell.swift in Sources */,
+				EFFE089E2A9E604A00DCCFAB /* DishModel.xcdatamodeld in Sources */,
 				EF4F47462A8D226C00DD0554 /* PresentAlert.swift in Sources */,
 				EF53E6582A8811F000844BDB /* DishCollectionView.swift in Sources */,
 				EF53E6122A8655D200844BDB /* SceneDelegate.swift in Sources */,
@@ -604,6 +649,73 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF63B71F2A9D375C004214C8 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = Stripe;
+		};
+		EF63B7212A9D375C004214C8 /* StripeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeApplePay;
+		};
+		EF63B7232A9D375C004214C8 /* StripeCardScan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeCardScan;
+		};
+		EF63B7252A9D375C004214C8 /* StripeFinancialConnections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeFinancialConnections;
+		};
+		EF63B7272A9D375C004214C8 /* StripeIdentity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripeIdentity;
+		};
+		EF63B7292A9D375C004214C8 /* StripePaymentSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePaymentSheet;
+		};
+		EF63B72B2A9D375C004214C8 /* StripePayments */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePayments;
+		};
+		EF63B72D2A9D375C004214C8 /* StripePaymentsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF63B71E2A9D375C004214C8 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePaymentsUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		EFFE089C2A9E604A00DCCFAB /* DishModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFFE089D2A9E604A00DCCFAB /* DishModel.xcdatamodel */,
+			);
+			currentVersion = EFFE089D2A9E604A00DCCFAB /* DishModel.xcdatamodel */;
+			path = DishModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EF53E6042A8655D200844BDB /* Project object */;
 }

@@ -7,18 +7,6 @@
 
 import UIKit
 
-//class SelectedDishesContainer {
-//    static let shared = SelectedDishesContainer()
-//
-//    private init() {}
-//
-//    var selectedDishes: [Dish] = []
-//
-//    func addSelectedDish(_ dish: Dish) {
-//        selectedDishes.append(dish)
-//    }
-//}
-
 final class CustomAlert {
     
     private var dish: Dish?
@@ -53,16 +41,17 @@ final class CustomAlert {
         scrollView.addSubview(backgroundView)
         
         alertView.frame = CGRect(x: 40,
-                                 y: -420,
+                                 y: -parentView.frame.height,
                                  width: parentView.frame.width - 80,
-                                 height: 460)
+                                 height: parentView.frame.height / 2)
+    
         scrollView.addSubview(alertView)
         
         
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.backgroundView.alpha = 0.8
         } completion: { _ in
-            UIView.animate(withDuration: 0.3) { [weak self] in
+            UIView.animate(withDuration: 0.45) { [weak self] in
                 self?.alertView.center = parentView.center
             }
         }
@@ -76,7 +65,7 @@ final class CustomAlert {
             self.alertView.frame = CGRect(x: 40,
                                           y: targetView.frame.height,
                                           width: targetView.frame.width - 80,
-                                          height: 460)
+                                          height: targetView.frame.height / 2)
         } completion: { _ in
             UIView.animate(withDuration: 0.4) { [weak self] in
                 self?.backgroundView.alpha = 0

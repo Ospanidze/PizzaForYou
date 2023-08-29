@@ -17,6 +17,12 @@ final class AlertView: UIView {
     
     weak var alertViewDelegate: AlertViewDelegate?
     
+    var isTapped = false {
+        didSet {
+            basketButton.backgroundColor = isTapped ? .systemGreen : .blue
+        }
+    }
+    
     private let networkManager = NetworkManager.shared
     
     private let backdropView: UIView = {
@@ -43,7 +49,7 @@ final class AlertView: UIView {
     
     private let nameLabel = UILabel(
         text: "C рисосм",
-        font: UIFont.systemFont(ofSize: 18, weight: .heavy)
+        font: UIFont.systemFont(ofSize: 16, weight: .heavy)
     )
     private let costLabel = UILabel(
         text: "213tg",
@@ -66,7 +72,6 @@ final class AlertView: UIView {
         let button = UIButton()
         button.layer.cornerRadius = 10
         button.setTitle("Добавить в корзину", for: .normal)
-        button.setTitleColor(.green, for: .highlighted)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.backgroundColor = .blue
         button.tintColor = .white
@@ -95,7 +100,7 @@ final class AlertView: UIView {
         costLabel.text = "\(dish.price)tg"
         massLabel.text = "\(dish.weight)g"
         discriptionLabel.text = dish.description
-        
+        isTapped = false
         networkManager.fetchImage(from: dish.imageURL) {[weak self] result in
             switch result {
             case .success(let imageData):
@@ -112,6 +117,7 @@ final class AlertView: UIView {
     }
     
     @objc private func basketButtonAction() {
+        isTapped = true
         alertViewDelegate?.basketAction()
     }
     
@@ -136,7 +142,7 @@ extension AlertView {
             backdropView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             backdropView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             backdropView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            backdropView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45)
+            backdropView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
         ])
         
         NSLayoutConstraint.activate([
@@ -174,18 +180,19 @@ extension AlertView {
         ])
         
         NSLayoutConstraint.activate([
-            discriptionLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 2),
-            discriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            discriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            discriptionLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25)
-        ])
-        
-        NSLayoutConstraint.activate([
-            basketButton.topAnchor.constraint(equalTo: discriptionLabel.bottomAnchor, constant: 5),
             basketButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             basketButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             basketButton.heightAnchor.constraint(equalToConstant: 60),
-            //basketButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+            basketButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
+        
+        NSLayoutConstraint.activate([
+            discriptionLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 5),
+            discriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            discriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            discriptionLabel.bottomAnchor.constraint(equalTo: basketButton.topAnchor, constant: -5),
+        ])
+        
+        
     }
 }

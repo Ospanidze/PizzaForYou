@@ -37,7 +37,8 @@ final class RootViewController: UITabBarController {
     
     private func configure() {
         tabBar.backgroundColor = .white
-        
+        //tabBar.tintColor = .black
+        //tabBar.unselectedItemTintColor = .systemBlue
         tabBar.layer.borderColor = UIColor.lightGray.cgColor
         tabBar.layer.borderWidth = 1
         tabBar.layer.masksToBounds = true
@@ -77,7 +78,7 @@ final class RootViewController: UITabBarController {
         let tabBarItem = UITabBarItem(
             title: title,
             image: UIImage(systemName: imageTitle),
-            tag: 0
+            selectedImage: nil
         )
         
         let navVC = UINavigationController(rootViewController: vc)
