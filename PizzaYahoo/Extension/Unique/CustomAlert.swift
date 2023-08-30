@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol CustomAlertDelegate: AnyObject {
+    func selectedDish(_ dish: Dish)
+}
+
 final class CustomAlert {
+    
+    weak var delegate: CustomAlertDelegate?
     
     private var dish: Dish?
     
@@ -85,8 +91,10 @@ extension CustomAlert: AlertViewDelegate {
     
     func basketAction() {
         guard let chosenDish = dish else { return }
-        let userInfo: [String: Dish] = ["selectedDish": chosenDish]
-        NotificationCenter.default.post(name: NSNotification.Name("SelectedDishNotification"), object: nil, userInfo: userInfo)
+//        let userInfo: [String: Dish] = ["selectedDish": chosenDish]
+//        NotificationCenter.default.post(name: NSNotification.Name("SelectedDishNotification"), object: nil, userInfo: userInfo)
+        
+        delegate?.selectedDish(chosenDish)
 
         closeButtonTapped()
     }

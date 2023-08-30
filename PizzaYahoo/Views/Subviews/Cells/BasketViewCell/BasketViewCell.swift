@@ -68,7 +68,7 @@ final class BasketViewCell: UITableViewCell {
         }
         plusAndMinusView.configure(beginningCount: cartItem.quantity)
         
-        networkManager.fetchImage(from: cartItem.dish.imageURL) { [weak self] result in
+        networkManager.fetchImage(from: cartItem.dish.imageURL ?? "") { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.basketImageView.image = UIImage(data: imageData)

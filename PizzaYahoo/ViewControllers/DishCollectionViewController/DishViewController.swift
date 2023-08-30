@@ -12,6 +12,7 @@ final class DishViewController: UIViewController {
     var dishTitle: String?
 
     private let networkManager = NetworkManager.shared
+    private let storageManager = StorageManager.shared
     private var groupNames = Teg.allCases
     
     private let groupCollectionView = GroupCollectionView()
@@ -36,6 +37,7 @@ final class DishViewController: UIViewController {
     private func setupDelegates() {
         groupCollectionView.groupDelegate = self
         dishCollectionView.dishDelegate = self
+        customAlert.delegate = self
     }
     
     private func setupViews() {
@@ -75,6 +77,17 @@ final class DishViewController: UIViewController {
         ])
     }
     
+}
+
+extension DishViewController: CustomAlertDelegate {
+    func selectedDish(_ dish: Dish) {
+        storageManager.create(dish) { _ in
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "SelectedDishNotification"),
+                object: nil
+            )
+        }
+    }
 }
 
 //MARK: GroupCollectionViewDelegate

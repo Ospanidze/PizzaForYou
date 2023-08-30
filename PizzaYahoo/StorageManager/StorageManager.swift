@@ -30,13 +30,14 @@ class StorageManager {
     }
     
     //MARK: -CRUD create read update delete
-    func create(_ dish: Dish) {
+    func create(_ dish: Dish, completion: (()) ->Void) {
         let dishItem = DishItem(context: viewContent)
         dishItem.name = dish.name
         dishItem.id =   Int64(dish.id)
         dishItem.price = Int64(dish.price)
         dishItem.weight = Int64(dish.weight)
         dishItem.imageURL = dish.imageURL
+        completion(())
         saveContext()
     }
     

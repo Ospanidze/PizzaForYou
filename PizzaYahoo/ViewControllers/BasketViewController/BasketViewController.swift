@@ -12,7 +12,7 @@ protocol BasketViewControllerDelegate: AnyObject {
 }
 
 struct CartItem {
-    let dish: Dish
+    let dish: DishItem
     var quantity = 1
 }
 
@@ -20,6 +20,7 @@ final class BasketViewController: UIViewController {
     
     private let idBasketCell = "idBasketCell"
     
+    private let storageManager = StorageManager.shared
     private var cartItems: [CartItem] = []
     
     private let leftView = LeftNavBarView()
@@ -65,7 +66,12 @@ final class BasketViewController: UIViewController {
             forCellReuseIdentifier: idBasketCell
         )
     
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSelectedDish(_:)), name: NSNotification.Name("SelectedDishNotification"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSelectedDish(_:)), name: NSNotification.Name("SelectedDishNotification"), object: nil)
+        fetchData()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("SelectedDishNotification"), object: nil, queue: nil) { _ in
+            self.fetchData()
+            self.cartItemsCount = self.cartItems.count
+        }
     }
     
     //MARK: Private Methods
@@ -80,25 +86,25 @@ final class BasketViewController: UIViewController {
     }
     
     private func updateTotalSum() {
-        let totalSum = cartItems.reduce(0) { $0 + $1.dish.price * $1.quantity }
+        let totalSum = cartItems.reduce(0) { $0 + Int($1.dish.price) * $1.quantity }
         payButton.setTitle("Оплатить \(totalSum)tg", for: .normal)
     }
     
-    @objc private func didReceiveSelectedDish(_ notification: Notification) {
-        if let selectedDish = notification.userInfo?["selectedDish"] as? Dish {
-
-            if let index = cartItems.firstIndex(where: { $0.dish.id == selectedDish.id }) {
-                cartItems[index].quantity += 1
-            } else {
-                let cartItem = CartItem(dish: selectedDish)
-                cartItems.append(cartItem)
-                cartItemsCount = cartItems.count
-            }
-
-            updateTotalSum()
-            basketTableView.reloadData()
-        }
-    }
+//    @objc private func didReceiveSelectedDish(_ notification: Notification) {
+//        if let selectedDish = notification.userInfo?["selectedDish"] as? Dish {
+//
+//            if let index = cartItems.firstIndex(where: { $0.dish.id == selectedDish.id }) {
+//                cartItems[index].quantity += 1
+//            } else {
+//                let cartItem = CartItem(dish: selectedDish)
+//                cartItems.append(cartItem)
+//                cartItemsCount = cartItems.count
+//            }
+//
+//            updateTotalSum()
+//            basketTableView.reloadData()
+//        }
+//    }
     
     private func updateCartBadge() {
         if let tabBarController = self.tabBarController {
@@ -108,6 +114,26 @@ final class BasketViewController: UIViewController {
                 tabBarController.tabBar.items?[cartTabIndex].badgeValue = "\(cartItemsCount)"
             } else {
                 tabBarController.tabBar.items?[cartTabIndex].badgeValue = nil
+            }
+        }
+    }
+    
+    private func getDishItems(_ dishItems: [DishItem]) {
+        cartItems = dishItems.map { CartItem(dish: $0) }
+        cartItemsCount = cartItems.count
+        updateTotalSum()
+        basketTableView.reloadData()
+    }
+    
+    private func fetchData() {
+        storageManager.fetchData { result in
+            switch result {
+            case .success(let dishItems):
+                DispatchQueue.main.async {
+                    self.getDishItems(dishItems)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -126,6 +152,8 @@ extension BasketViewController: UITableViewDataSource {
         
         cell.quantityChanged = { [unowned self, indexPath] newQuantity in
             guard newQuantity != 0 else {
+                let cartItem = cartItems[indexPath.row]
+                storageManager.delete(cartItem.dish)
                 self.cartItems.remove(at: indexPath.row)
                 self.cartItemsCount = cartItems.count
                 self.updateTotalSum()
@@ -148,6 +176,8 @@ extension BasketViewController: UITableViewDataSource {
 extension BasketViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let cartItem = cartItems[indexPath.row]
+            storageManager.delete(cartItem.dish)
             cartItems.remove(at: indexPath.row)
             cartItemsCount = cartItems.count
             tableView.deleteRows(at: [indexPath], with: .automatic)
