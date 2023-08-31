@@ -111,11 +111,13 @@ extension BasketViewCell {
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             nameLabel.leadingAnchor.constraint(equalTo: backdropView.trailingAnchor, constant: 10),
             nameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            nameLabel.heightAnchor.constraint(equalToConstant: 25),
         ])
         
         NSLayoutConstraint.activate([
             costLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             costLabel.leadingAnchor.constraint(equalTo: backdropView.trailingAnchor, constant: 10),
+            
             
             massLabel.centerYAnchor.constraint(equalTo: costLabel.centerYAnchor),
             massLabel.leadingAnchor.constraint(equalTo: costLabel.trailingAnchor, constant: 7),

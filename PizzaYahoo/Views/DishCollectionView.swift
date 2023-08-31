@@ -93,7 +93,7 @@ extension DishCollectionView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        dishCell.setupCell(dish: dish)
+        dishCell.configure(with: dish)
         return dishCell
     }
 }

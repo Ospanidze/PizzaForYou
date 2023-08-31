@@ -9,8 +9,10 @@ import UIKit
 
 final class DishCollectionViewCell: UICollectionViewCell {
     
-    private let networkManager = NetworkManager.shared
+    static let identifier = "DishCollectionViewCell"
     
+    private let networkManager = NetworkManager.shared
+   
     private let dishBackdropView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray6
@@ -56,7 +58,7 @@ final class DishCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCell(dish: Dish) {
+    func configure(with dish: Dish) {
         dishNameLabel.text = dish.name
         
         networkManager.fetchImage(from: dish.imageURL) { [weak self] result in

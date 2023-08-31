@@ -34,7 +34,7 @@ final class BasketViewController: UIViewController {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.backgroundView?.backgroundColor = .white
-        tableView.rowHeight = 80
+        tableView.rowHeight = 100
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -47,8 +47,18 @@ final class BasketViewController: UIViewController {
         button.titleLabel?.font = UIFont.sfProDisplay(size: 18)
         button.backgroundColor = .blue
         button.tintColor = .white
+        button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private let basketImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "basket")
+        //imageView.backgroundColor = .systemBlue
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     override func viewDidLoad() {
@@ -70,6 +80,7 @@ final class BasketViewController: UIViewController {
     
     //MARK: Private Methods
     private func setupViews() {
+        basketTableView.addSubview(basketImageView)
         view.addSubview(basketTableView)
         view.addSubview(payButton)
     }
@@ -106,8 +117,12 @@ final class BasketViewController: UIViewController {
             if cartItemsCount > 0 {
                 //tabBarController.tabBar.items?[cartTabIndex].badgeColor = .systemGreen
                 tabBarController.tabBar.items?[cartTabIndex].badgeValue = "\(cartItemsCount)"
+                payButton.isHidden = false
+                basketImageView.isHidden = true
             } else {
                 tabBarController.tabBar.items?[cartTabIndex].badgeValue = nil
+                payButton.isHidden = true
+                basketImageView.isHidden = false
             }
         }
     }
@@ -192,6 +207,13 @@ extension BasketViewController {
             basketTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             basketTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             basketTableView.bottomAnchor.constraint(equalTo: payButton.topAnchor, constant: -10),
+        ])
+        
+        NSLayoutConstraint.activate([
+            basketImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            basketImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            basketImageView.heightAnchor.constraint(equalToConstant: view.bounds.width / 2),
+            basketImageView.widthAnchor.constraint(equalToConstant: view.bounds.width / 2)
         ])
     }
 }
