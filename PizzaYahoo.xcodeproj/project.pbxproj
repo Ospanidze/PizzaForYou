@@ -45,6 +45,20 @@
 		EF6926E62A8916D0001AFCF4 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E52A8916D0001AFCF4 /* CustomAlert.swift */; };
 		EF6926E92A892F2A001AFCF4 /* BasketViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926E82A892F2A001AFCF4 /* BasketViewCell.swift */; };
 		EF6926EB2A8A9878001AFCF4 /* PlusAndMinusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6926EA2A8A9878001AFCF4 /* PlusAndMinusView.swift */; };
+		EFE9DCB42AA36D5300AA1643 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCB32AA36D5300AA1643 /* AccountTableViewCell.swift */; };
+		EFE9DCB62AA3767400AA1643 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCB52AA3767400AA1643 /* EditingViewController.swift */; };
+		EFE9DCBA2AA37AEB00AA1643 /* TextViewTabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCB92AA37AEB00AA1643 /* TextViewTabelViewCell.swift */; };
+		EFE9DCBC2AA37BF100AA1643 /* NameTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCBB2AA37BF100AA1643 /* NameTextView.swift */; };
+		EFE9DCBE2AA38FBB00AA1643 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCBD2AA38FBB00AA1643 /* DatePickerTableViewCell.swift */; };
+		EFE9DCC02AA393B500AA1643 /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCBF2AA393B500AA1643 /* PickerViewTableViewCell.swift */; };
+		EFE9DCC22AA394A100AA1643 /* GenderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCC12AA394A100AA1643 /* GenderPickerView.swift */; };
+		EFE9DCC42AA396A200AA1643 /* GenderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCC32AA396A200AA1643 /* GenderTextField.swift */; };
+		EFE9DCC62AA3A06A00AA1643 /* EditingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCC52AA3A06A00AA1643 /* EditingTableView.swift */; };
+		EFE9DCC82AA3A3EC00AA1643 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCC72AA3A3EC00AA1643 /* User.swift */; };
+		EFE9DCCA2AA3A60600AA1643 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCC92AA3A60600AA1643 /* UserDefaultsManager.swift */; };
+		EFE9DCCC2AA3B0DB00AA1643 /* ext + UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCCB2AA3B0DB00AA1643 /* ext + UIBarButtonItem.swift */; };
+		EFE9DCCE2AA3C98500AA1643 /* ext + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCCD2AA3C98500AA1643 /* ext + String.swift */; };
+		EFE9DCD02AA3CA0E00AA1643 /* ext + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9DCCF2AA3CA0E00AA1643 /* ext + Date.swift */; };
 		EFFE089E2A9E604A00DCCFAB /* DishModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFFE089C2A9E604A00DCCFAB /* DishModel.xcdatamodeld */; };
 		EFFE08A12A9E613100DCCFAB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE08A02A9E613100DCCFAB /* StorageManager.swift */; };
 		EFFE08A52AA00B3100DCCFAB /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE08A42AA00B3100DCCFAB /* SearchResultViewController.swift */; };
@@ -85,6 +99,20 @@
 		EF6926E52A8916D0001AFCF4 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		EF6926E82A892F2A001AFCF4 /* BasketViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewCell.swift; sourceTree = "<group>"; };
 		EF6926EA2A8A9878001AFCF4 /* PlusAndMinusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusAndMinusView.swift; sourceTree = "<group>"; };
+		EFE9DCB32AA36D5300AA1643 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		EFE9DCB52AA3767400AA1643 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
+		EFE9DCB92AA37AEB00AA1643 /* TextViewTabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTabelViewCell.swift; sourceTree = "<group>"; };
+		EFE9DCBB2AA37BF100AA1643 /* NameTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextView.swift; sourceTree = "<group>"; };
+		EFE9DCBD2AA38FBB00AA1643 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		EFE9DCBF2AA393B500AA1643 /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
+		EFE9DCC12AA394A100AA1643 /* GenderPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPickerView.swift; sourceTree = "<group>"; };
+		EFE9DCC32AA396A200AA1643 /* GenderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTextField.swift; sourceTree = "<group>"; };
+		EFE9DCC52AA3A06A00AA1643 /* EditingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableView.swift; sourceTree = "<group>"; };
+		EFE9DCC72AA3A3EC00AA1643 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EFE9DCC92AA3A60600AA1643 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		EFE9DCCB2AA3B0DB00AA1643 /* ext + UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ext + UIBarButtonItem.swift"; sourceTree = "<group>"; };
+		EFE9DCCD2AA3C98500AA1643 /* ext + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ext + String.swift"; sourceTree = "<group>"; };
+		EFE9DCCF2AA3CA0E00AA1643 /* ext + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ext + Date.swift"; sourceTree = "<group>"; };
 		EFFE089D2A9E604A00DCCFAB /* DishModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DishModel.xcdatamodel; sourceTree = "<group>"; };
 		EFFE08A02A9E613100DCCFAB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		EFFE08A42AA00B3100DCCFAB /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +219,7 @@
 			children = (
 				EF63B71C2A9CD825004214C8 /* PaymentViewController.swift */,
 				EF53E62F2A865D6E00844BDB /* AccountViewController.swift */,
+				EFE9DCB52AA3767400AA1643 /* EditingViewController.swift */,
 			);
 			path = AccountViewController;
 			sourceTree = "<group>";
@@ -212,6 +241,9 @@
 				EF6926E02A88E6F6001AFCF4 /* ext + UIButton.swift */,
 				EF4F47432A8CF58900DD0554 /* ext + UIFont.swift */,
 				EF4F47452A8D226C00DD0554 /* PresentAlert.swift */,
+				EFE9DCCB2AA3B0DB00AA1643 /* ext + UIBarButtonItem.swift */,
+				EFE9DCCD2AA3C98500AA1643 /* ext + String.swift */,
+				EFE9DCCF2AA3CA0E00AA1643 /* ext + Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -219,10 +251,12 @@
 		EF53E6342A8664A100844BDB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9DCB82AA37AD000AA1643 /* EditingViewCell */,
 				EF53E6352A8664EF00844BDB /* MainTableViewCell */,
 				EF53E6412A86AB6800844BDB /* DishCollectionViewCell */,
 				EF6926E72A892F16001AFCF4 /* BasketViewCell */,
 				EFFE08A62AA00D9700DCCFAB /* SearchCollectionViewCell.swift */,
+				EFE9DCB72AA37A9000AA1643 /* AccountViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -250,6 +284,7 @@
 				EF53E63F2A86950C00844BDB /* Classification.swift */,
 				EF53E63B2A868BC500844BDB /* Food.swift */,
 				EFFE089C2A9E604A00DCCFAB /* DishModel.xcdatamodeld */,
+				EFE9DCC72AA3A3EC00AA1643 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,11 +317,15 @@
 		EF53E6492A87B8C100844BDB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF53E64A2A87B8CC00844BDB /* Subviews */,
 				EF53E64B2A87B93200844BDB /* LeftNavBarView.swift */,
 				EF53E6552A880CEA00844BDB /* GroupCollectionView.swift */,
 				EF53E6572A8811F000844BDB /* DishCollectionView.swift */,
 				EF6926DE2A88E60B001AFCF4 /* AlertView.swift */,
+				EFE9DCBB2AA37BF100AA1643 /* NameTextView.swift */,
+				EFE9DCC12AA394A100AA1643 /* GenderPickerView.swift */,
+				EFE9DCC32AA396A200AA1643 /* GenderTextField.swift */,
+				EFE9DCC52AA3A06A00AA1643 /* EditingTableView.swift */,
+				EF53E64A2A87B8CC00844BDB /* Subviews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,10 +355,29 @@
 			path = BasketViewCell;
 			sourceTree = "<group>";
 		};
+		EFE9DCB72AA37A9000AA1643 /* AccountViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9DCB32AA36D5300AA1643 /* AccountTableViewCell.swift */,
+			);
+			path = AccountViewCell;
+			sourceTree = "<group>";
+		};
+		EFE9DCB82AA37AD000AA1643 /* EditingViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9DCB92AA37AEB00AA1643 /* TextViewTabelViewCell.swift */,
+				EFE9DCBD2AA38FBB00AA1643 /* DatePickerTableViewCell.swift */,
+				EFE9DCBF2AA393B500AA1643 /* PickerViewTableViewCell.swift */,
+			);
+			path = EditingViewCell;
+			sourceTree = "<group>";
+		};
 		EFFE089F2A9E611400DCCFAB /* StorageManager */ = {
 			isa = PBXGroup;
 			children = (
 				EFFE08A02A9E613100DCCFAB /* StorageManager.swift */,
+				EFE9DCC92AA3A60600AA1643 /* UserDefaultsManager.swift */,
 			);
 			path = StorageManager;
 			sourceTree = "<group>";
@@ -329,8 +387,8 @@
 			children = (
 				EF53E6132A8655D200844BDB /* RootViewController.swift */,
 				EF53E6252A86572400844BDB /* HomeTableViewController */,
-				EF53E6482A87B69C00844BDB /* DishCollectionViewController */,
 				EF53E6262A86575600844BDB /* ResearchViewController */,
+				EF53E6482A87B69C00844BDB /* DishCollectionViewController */,
 				EF53E6272A86579200844BDB /* BasketViewController */,
 				EF53E6282A8657B500844BDB /* AccountViewController */,
 			);
@@ -434,19 +492,28 @@
 				EF53E62E2A865D5900844BDB /* BasketViewController.swift in Sources */,
 				EF6926DF2A88E60B001AFCF4 /* AlertView.swift in Sources */,
 				EF6926EB2A8A9878001AFCF4 /* PlusAndMinusView.swift in Sources */,
+				EFE9DCBA2AA37AEB00AA1643 /* TextViewTabelViewCell.swift in Sources */,
 				EFFE08A12A9E613100DCCFAB /* StorageManager.swift in Sources */,
 				EF6926E92A892F2A001AFCF4 /* BasketViewCell.swift in Sources */,
+				EFE9DCB42AA36D5300AA1643 /* AccountTableViewCell.swift in Sources */,
+				EFE9DCC82AA3A3EC00AA1643 /* User.swift in Sources */,
+				EFE9DCCE2AA3C98500AA1643 /* ext + String.swift in Sources */,
+				EFE9DCC42AA396A200AA1643 /* GenderTextField.swift in Sources */,
 				EF53E6142A8655D200844BDB /* RootViewController.swift in Sources */,
+				EFE9DCB62AA3767400AA1643 /* EditingViewController.swift in Sources */,
 				EF53E63E2A868C5200844BDB /* NetworkManager.swift in Sources */,
 				EF4F47442A8CF58900DD0554 /* ext + UIFont.swift in Sources */,
 				EF53E6372A86659A00844BDB /* MainTableViewCell.swift in Sources */,
 				EF6926E12A88E6F6001AFCF4 /* ext + UIButton.swift in Sources */,
 				EF53E6402A86950C00844BDB /* Classification.swift in Sources */,
 				EF53E6302A865D6E00844BDB /* AccountViewController.swift in Sources */,
+				EFE9DCCC2AA3B0DB00AA1643 /* ext + UIBarButtonItem.swift in Sources */,
 				EF53E6472A86E27400844BDB /* DishViewController.swift in Sources */,
+				EFE9DCD02AA3CA0E00AA1643 /* ext + Date.swift in Sources */,
 				EF53E6102A8655D200844BDB /* AppDelegate.swift in Sources */,
 				EFFE08A72AA00D9700DCCFAB /* SearchCollectionViewCell.swift in Sources */,
 				EF6926E62A8916D0001AFCF4 /* CustomAlert.swift in Sources */,
+				EFE9DCBE2AA38FBB00AA1643 /* DatePickerTableViewCell.swift in Sources */,
 				EFFE08A92AA02C4300DCCFAB /* DescriptionViewController.swift in Sources */,
 				EF53E64E2A87BF5E00844BDB /* ext + UILabel.swift in Sources */,
 				EFFE08A52AA00B3100DCCFAB /* SearchResultViewController.swift in Sources */,
@@ -458,9 +525,14 @@
 				EFFE089E2A9E604A00DCCFAB /* DishModel.xcdatamodeld in Sources */,
 				EF4F47462A8D226C00DD0554 /* PresentAlert.swift in Sources */,
 				EF53E6582A8811F000844BDB /* DishCollectionView.swift in Sources */,
+				EFE9DCC62AA3A06A00AA1643 /* EditingTableView.swift in Sources */,
 				EF53E6122A8655D200844BDB /* SceneDelegate.swift in Sources */,
+				EFE9DCBC2AA37BF100AA1643 /* NameTextView.swift in Sources */,
 				EF53E62A2A865D0900844BDB /* HomeTableViewController.swift in Sources */,
 				EF53E6562A880CEA00844BDB /* GroupCollectionView.swift in Sources */,
+				EFE9DCCA2AA3A60600AA1643 /* UserDefaultsManager.swift in Sources */,
+				EFE9DCC22AA394A100AA1643 /* GenderPickerView.swift in Sources */,
+				EFE9DCC02AA393B500AA1643 /* PickerViewTableViewCell.swift in Sources */,
 				EF53E62C2A865D3A00844BDB /* ResearchCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
