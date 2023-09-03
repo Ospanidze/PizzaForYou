@@ -18,7 +18,6 @@ struct User: Hashable {
         firstModel.firstName == secondModel.firstName &&
         firstModel.lastName == secondModel.lastName &&
         firstModel.additionalName == secondModel.additionalName &&
-        firstModel.dateBirthday == secondModel.dateBirthday &&
         firstModel.gender == secondModel.gender
     }
 }

@@ -15,46 +15,79 @@ enum NameField: String, CaseIterable {
     case gender = "Пол"
 }
 
-final class AccountViewController: UITableViewController {
+final class AccountViewController: UIViewController {
     
     private let userDefaultsManager = UserDefaultsManager.shared
     private let nameFields = NameField.allCases
+    
+    private let userImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .gray
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     private var user = User()
+    private let accountTableView = AccountTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Аккаунт"
         view.backgroundColor = .white
        
-        tableView.register(
-            AccountTableViewCell.self,
-            forCellReuseIdentifier: AccountTableViewCell.identifier
-        )
-        
-       
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Редактировать",
             style: .plain,
             target: self,
             action: #selector(editingTapped))
-       
+        addSubviews()
+        setupLayout()
+        setValueArray()
         getUser()
         print(user)
+        
+//        if let bundleIdentifier = Bundle.main.bundleIdentifier {
+//            UserDefaults.standard.removePersistentDomain(forName: bundleIdentifier)
+//        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
     }
     
     func changeUser(newUser: User) {
         saveNewEditUser(newUser)
         user = newUser
-        tableView.reloadData()
+        //accountTableView.reloadData()
+        setValueArray()
+    }
+    
+    func changeUserPhoto(image: UIImage?) {
+        
+        userImageView.image = image
+        guard let image = image else { return }
+        if let imageData = image.jpegData(compressionQuality: 0.5) {
+            userDefaultsManager.saveUser(imageData: imageData)
+        }
+    }
+    
+    private func addSubviews() {
+        view.addSubview(userImageView)
+        view.addSubview(accountTableView)
     }
     
     @objc private func editingTapped() {
-        let vc = EditingViewController(user)
+        let vc = EditingViewController(user, userImageView.image)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     private func getUser() {
          user = userDefaultsManager.fetchUser()
+         userDefaultsManager.loadUserImageData { [weak self] imageData in
+             self?.userImageView.image = UIImage(data: imageData)
+        }
     }
     
     private func saveNewEditUser(_ user: User) {
@@ -64,34 +97,38 @@ final class AccountViewController: UITableViewController {
         userDefaultsManager.saveUserValue(NameField.dateBirthday.rawValue, user.dateBirthday)
         userDefaultsManager.saveUserValue(NameField.gender.rawValue, user.gender)
     }
-}
-
-//MARK: UITableViewDataSource
-extension AccountViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        nameFields.count
+    
+    private func getValueArray() -> [String] {
+        var values: [String] = []
+        for key in nameFields {
+            let value = userDefaultsManager.getUserValue(key.rawValue)
+            values.append(value)
+        }
+        return values
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let nameField = nameFields[indexPath.row].rawValue
-        
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: AccountTableViewCell.identifier,
-            for: indexPath
-        )
-        guard let cell = cell as? AccountTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        let value = userDefaultsManager.getUserValue(nameField)
-        cell.configure(with: nameField, value: value)
-        return cell
+    private func setValueArray() {
+        let values = getValueArray()
+        accountTableView.configureValueArray(values)
+        accountTableView.reloadData()
     }
 }
 
-//MARK: UITableViewDelegate
+//MARK: SetupLayout
 extension AccountViewController {
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == 1 ? UITableView.automaticDimension : 44
+    private func setupLayout() {
+        NSLayoutConstraint.activate([
+            userImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            userImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            userImageView.heightAnchor.constraint(equalToConstant: 100),
+            userImageView.widthAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        NSLayoutConstraint.activate([
+            accountTableView.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 10),
+            accountTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            accountTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            accountTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }

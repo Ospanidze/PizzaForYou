@@ -47,7 +47,7 @@ final class TextViewTabelViewCell: UITableViewCell {
     }
     
     func getCellValue() -> String {
-        nameTextView.text
+        nameTextView.text == "Введите данные" ? "" : nameTextView.text
     }
     
     private func addSubviews() {

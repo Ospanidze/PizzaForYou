@@ -35,7 +35,7 @@ final class PickerViewTableViewCell: UITableViewCell {
     
     func configure(with name: String, value: String) {
         nameLabel.text = name
-        genderTextField.text = value == "" ? "Введите данные" : value
+        genderTextField.text = value 
     }
     
     func getCellValue() -> String {

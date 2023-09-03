@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF3790F22AA4F17F00C1D494 /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3790F12AA4F17F00C1D494 /* AccountTableView.swift */; };
 		EF4F47442A8CF58900DD0554 /* ext + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4F47432A8CF58900DD0554 /* ext + UIFont.swift */; };
 		EF4F47462A8D226C00DD0554 /* PresentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4F47452A8D226C00DD0554 /* PresentAlert.swift */; };
 		EF53E6102A8655D200844BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53E60F2A8655D200844BDB /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF3790F12AA4F17F00C1D494 /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
 		EF4F47432A8CF58900DD0554 /* ext + UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ext + UIFont.swift"; sourceTree = "<group>"; };
 		EF4F47452A8D226C00DD0554 /* PresentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAlert.swift; sourceTree = "<group>"; };
 		EF53E60C2A8655D200844BDB /* PizzaYahoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaYahoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +327,7 @@
 				EFE9DCC12AA394A100AA1643 /* GenderPickerView.swift */,
 				EFE9DCC32AA396A200AA1643 /* GenderTextField.swift */,
 				EFE9DCC52AA3A06A00AA1643 /* EditingTableView.swift */,
+				EF3790F12AA4F17F00C1D494 /* AccountTableView.swift */,
 				EF53E64A2A87B8CC00844BDB /* Subviews */,
 			);
 			path = Views;
@@ -494,6 +497,7 @@
 				EF6926EB2A8A9878001AFCF4 /* PlusAndMinusView.swift in Sources */,
 				EFE9DCBA2AA37AEB00AA1643 /* TextViewTabelViewCell.swift in Sources */,
 				EFFE08A12A9E613100DCCFAB /* StorageManager.swift in Sources */,
+				EF3790F22AA4F17F00C1D494 /* AccountTableView.swift in Sources */,
 				EF6926E92A892F2A001AFCF4 /* BasketViewCell.swift in Sources */,
 				EFE9DCB42AA36D5300AA1643 /* AccountTableViewCell.swift in Sources */,
 				EFE9DCC82AA3A3EC00AA1643 /* User.swift in Sources */,

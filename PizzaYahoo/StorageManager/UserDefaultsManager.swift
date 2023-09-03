@@ -62,4 +62,14 @@ final class UserDefaultsManager {
         let stringValue = userInfo[key] ?? ""
         return stringValue
     }
+    
+    func saveUser(imageData: Data) {
+        userDefaults.set(imageData, forKey: "userPhoto")
+    }
+    
+    func loadUserImageData(completion: @escaping(Data) -> Void) {
+        if let data = userDefaults.data(forKey: "userPhoto") {
+            completion(data)
+        }
+    }
 }
