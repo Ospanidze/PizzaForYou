@@ -11,7 +11,7 @@ final class UserDefaultsManager {
     static let shared = UserDefaultsManager()
     
     private let userDefaults = UserDefaults.standard
-    private let key = "user"
+    private let key = "User"
     
     private init() {}
     
@@ -42,7 +42,7 @@ final class UserDefaultsManager {
     func saveUserValue(_ key: String, _ value: String) {
         var userInfo = getUserInfo()
         userInfo[key] = value
-        userDefaults.set(userInfo, forKey: key)
+        userDefaults.set(userInfo, forKey: self.key)
     }
     
     func fetchUser() -> User {

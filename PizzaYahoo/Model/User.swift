@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Hashable {
     var firstName = ""
     var lastName = ""
     var additionalName = ""

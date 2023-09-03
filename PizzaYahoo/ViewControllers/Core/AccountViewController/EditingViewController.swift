@@ -9,9 +9,11 @@ import UIKit
 
 final class EditingViewController: UIViewController {
     
-    private let namesFields = NameField.allCases
+    private let nameFields = NameField.allCases
     private let editingTableView = EditingTableView()
     private var user = User()
+    
+    private var isSaveTapped = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +48,10 @@ final class EditingViewController: UIViewController {
     
     @objc private func saveButtonTapped() {
         let editUser = editingTableView.getUser()
-       
+        
         if authFields(user: editUser) {
             presentAlert(title: "Выполнено", message: nil)
+            isSaveTapped = true
         } else {
             presentAlert(title: "Ошибка", message: "Заполните поля ФИО, дата рождения и пол")
         }
@@ -61,22 +64,32 @@ final class EditingViewController: UIViewController {
         
         if editUser == user {
             navigationController?.popViewController(animated: true)
+        } else if isSaveTapped {
+            guard let accountVC = self.navigationController?.viewControllers.first as? AccountViewController else {
+                return
+            }
+            
+            accountVC.changeUser(newUser: editUser)
+            navigationController?.popViewController(animated: true)
         } else {
             presentChangeAlert { [weak self] changed in
                 guard let self = self else { return }
                 if changed {
-                    guard let accountVC = self.navigationController?.viewControllers.first as? AccountViewController else {
-                        return
+                    if self.authFields(user: editUser) {
+                        guard let accountVC = self.navigationController?.viewControllers.first as? AccountViewController else {
+                            return
+                        }
+                        accountVC.changeUser(newUser: editUser)
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        self.presentAlert(title: "Ошибка", message: "Заполните поля ФИО, дата рождения и пол")
                     }
-                    
-                    accountVC.changeUser(newUser: editUser)
-                    self.navigationController?.popViewController(animated: true)
                 } else {
                     self.navigationController?.popViewController(animated: true)
                 }
-                
             }
         }
+        isSaveTapped = false
     }
     
     private func authFields(user: User) -> Bool {

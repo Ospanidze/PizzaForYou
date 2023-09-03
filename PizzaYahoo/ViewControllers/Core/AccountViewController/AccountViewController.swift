@@ -18,14 +18,14 @@ enum NameField: String, CaseIterable {
 final class AccountViewController: UITableViewController {
     
     private let userDefaultsManager = UserDefaultsManager.shared
-    private let namesFields = NameField.allCases
+    private let nameFields = NameField.allCases
     private var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Аккаунт"
         view.backgroundColor = .white
-      
+       
         tableView.register(
             AccountTableViewCell.self,
             forCellReuseIdentifier: AccountTableViewCell.identifier
@@ -37,6 +37,7 @@ final class AccountViewController: UITableViewController {
             style: .plain,
             target: self,
             action: #selector(editingTapped))
+       
         getUser()
         print(user)
     }
@@ -68,11 +69,11 @@ final class AccountViewController: UITableViewController {
 //MARK: UITableViewDataSource
 extension AccountViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        namesFields.count
+        nameFields.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let nameField = namesFields[indexPath.row].rawValue
+        let nameField = nameFields[indexPath.row].rawValue
         
         let cell = tableView.dequeueReusableCell(
             withIdentifier: AccountTableViewCell.identifier,
